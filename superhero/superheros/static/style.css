@@ -1,0 +1,14 @@
+.bg-img {
+    opacity: 0.55;
+    background-position: center;
+    background-color: aliceblue;
+  }
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size:5vw;
+    transform: translate(-50%, -50%);
+    text-align: center;
+ }
