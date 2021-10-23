@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Delete Superhero</title>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Delete Hero</h1>
+    <ul>
+        <h2>Name: {{delete_hero.name}}</h2> </li>
+        <h2>Alter Ego: {{delete_hero.alter_ego}}</h2>
+        <h2>Primary Ability: {{delete_hero.primary_ability}}</h2>
+        <h2>Secondary Ability: {{delete_hero.secondary_ability}}</h2>
+        <h2>Catch Phrase: {{delete_hero.catch_phrase}}</h2>
+    </ul>
+    <form action="{% url 'superheros:delete' delete_hero.id %}" method="post">
+            {% csrf_token %}
+        <input type="submit" class="btn btn-primary btn-sm active" value="Delete Superhero">
+        <a href="{% url 'superheros:index' %}" class="btn btn-primary btn-sm active"> Return Home</a>
+    </form>
+</div>
+</body>
+</html>

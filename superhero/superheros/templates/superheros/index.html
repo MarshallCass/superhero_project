@@ -4,15 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Super Hero Index</title>
+
 </head>
 <body>
+    {% load static %}
+<img src="{% static '/blankman.jpg' %}" alt="blankman">
+
+<div class="container">
     <h1>List of Heroes</h1>
+
+    <form action=""></form>
     <ul>
         {% for hero in all_heros %}
-        <li> <h2>{{hero.name}} - <a href="{% url 'superheros:detail' hero.id %}"> Click for Details</a></h2> </li>
+        <h2>{{hero.name}} -</h2>
+            <h4><a href="{% url 'superheros:detail' hero.id %}"> Click for Details</a> -- 
+             <a href="{% url 'superheros:edit' hero.id %}"> Click To Edit</a> -- 
+             <a href="{% url 'superheros:delete' hero.id %}"> Click To Delete</a> </h4><br />
+
         {% endfor %}
     </ul>
-    <a href="{% url 'superheros:create' %}"> Add New Hero</a>
+        <a href="{% url 'superheros:create' %}" class="btn btn-primary btn-sm active">Add New Superhero</a>
+    </form>
+</div>
 </body>
 </html>

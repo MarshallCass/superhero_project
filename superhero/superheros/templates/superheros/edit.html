@@ -4,28 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Edit Super Hero Info</title>
+
 </head>
 <body>
-    <h1>Edit Super Hero</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        Name: <input type="text" name="name" id="name"><br />
-        Alter Ego: <input type="text" name="alter_ego" id="alter_ego"><br />
-        Primary Ability: <input type="text" name="primary" id="primary"><br />
-        Secondary Ability: <input type="text" name="secondary" id="secondary"><br />
-        Catchphrase: <input type="text" name="catchphrase" id="catchphrase"><br />
-        <input type="submit" value="Update">
-    </form>
-    <ul>
-        <li> <h2>Name: {{edit_hero.name}}</h2> </li>
-        <li> <h2>Alter Ego: {{edit_hero.alter_ego}}</h2> </li>
-        <li> <h2>Primary Ability: {{edit_hero.primary_ability}}</h2> </li>
-        <li> <h2>Secondary Ability: {{edit_hero.secondary_ability}}</h2> </li>
-        <li> <h2>Catch Phrase: {{edit_hero.catch_phrase}}</h2> </li>
-    </ul>
 
-    <a href="{% url 'superheros:index' %}"> Home</a>   
+<div class="container">    
+    <h1>Edit Super Hero</h1>
+
+    <form action="{% url 'superheros:edit' edit_hero.id %}" method="post">
+            {% csrf_token %}
+        <div class="form-group">
+            Name: <input type="text" class="form-control" name="name" id="name" value="{{edit_hero.name}}">
+        </div>
+
+        <div class="form-group">
+            Alter Ego: <input type="text" class="form-control" name="alter_ego" id="alter_ego" value="{{edit_hero.alter_ego}}">
+        </div>
+
+        <div class="form-group">
+            Primary Ability: <input type="text" class="form-control" name="primary" id="primary" value="{{edit_hero.primary_ability}}">
+        </div>
+        
+        <div class="form-group">
+            Secondary Ability: <input type="text" class="form-control" name="secondary" id="secondary" value="{{edit_hero.secondary_ability}}">
+        </div>
+        
+        <div class="form-group">
+            Catchphrase: <input type="text" class="form-control" name="catchphrase" id="catchphrase" value="{{edit_hero.catch_phrase}}"><br />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-sm active">Update</button>
+        <a href="{% url 'superheros:index' %}" class="btn btn-primary btn-sm active">Home</a>
+        
+    </form>
+</div>
 
 </body>
 </html>
